@@ -1,0 +1,21 @@
+version: '2'
+
+services:
+  jenkins:
+    container_name: jenkins
+    image: registry.npd.learndirect.com/jenkins:master
+    build: .
+    ports:
+      - 8080:8080
+      - 50000:50000
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+# uncomment next line if you want to keep jenkins data (effectively, all of jenkins) when the container has been deleted
+#      - jenkins-data:/var/jenkins_home
+    privileged: true
+
+
+
+
+
+
