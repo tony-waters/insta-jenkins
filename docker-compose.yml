@@ -4,7 +4,11 @@ services:
   jenkins:
     container_name: jenkins
     image: bit1/jenkins
-    build: .
+    build:
+      context: .
+      args:
+        - http_proxy
+        - https_proxy
     ports:
       - 8080:8080
       - 50000:50000

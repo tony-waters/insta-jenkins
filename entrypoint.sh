@@ -12,6 +12,7 @@ fi
 
 # add new files to jenkins_home
 mv /tmp/copy/* /var/jenkins_home/
+chown -R jenkins:jenkins /var/jenkins_home
 
 chmod +x /usr/local/bin/jenkins.sh
 exec su jenkins -c "/usr/local/bin/jenkins.sh"
