@@ -31,8 +31,8 @@ RUN apt-get update -y && apt-get install -y maven
 RUN mkdir -p /tmp/copy/.m2
 RUN mkdir /tmp/copy/.docker
 COPY settings.xml /tmp/copy/.m2/
-COPY jobs.groovy /tmp/copy/
 COPY config.json /tmp/copy/.docker/
+COPY jobs.groovy /tmp/copy/
 #RUN mkdir /var/jenkins_home/.m2
 #COPY settings.xml /var/jenkins_home/.m2/
 #USER root
