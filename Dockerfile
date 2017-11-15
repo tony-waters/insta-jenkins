@@ -29,13 +29,15 @@ RUN apt-get update -y && apt-get install -y maven
 ########################################################################################################################
 #USER jenkins
 RUN mkdir -p /tmp/copy/.m2
+RUN mkdir /tmp/copy/.docker
 COPY settings.xml /tmp/copy/.m2/
 COPY jobs.groovy /tmp/copy/
+COPY config.json /tmp/copy/.docker/
 #RUN mkdir /var/jenkins_home/.m2
 #COPY settings.xml /var/jenkins_home/.m2/
 #USER root
 #RUN chown -R jenkins:jenkins /var/jenkins_home/.m2
-RUN chown -R jenkins:jenkins /tmp/copy
+#RUN chown -R jenkins:jenkins /tmp/copy
 #USER jenkins
 
 ########################################################################################################################
