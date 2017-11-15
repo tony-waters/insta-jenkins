@@ -28,7 +28,7 @@ An example Pipeline job named 'clone1' (https://github.com/tony-waters/clone1) i
 Jenkins runs the Jenkinsfile in 'clone1' as defined in 'jobs.groovy'
 
 ## pushing to registries
-If you want to push to a registry you must include a 'config.json' file, containing your registry credentials.
+If you want to push to a registry from within your jobs Jenkinsfiles you must include a 'config.json' file, containing your registry credentials.
 This file is stored in ~/.docker on your local system when you have logged into your registry.
 Simply copy it from there into the root folder of this project and re-build.
 
