@@ -2,9 +2,18 @@
 
 A dockerised, configured jenkins server with Pipeline (https://jenkins.io/doc/book/pipeline/)
 and pre-coded jobs using JobDSL (https://wiki.jenkins.io/display/JENKINS/Job+DSL+Plugin).
+Based on the official jenkins/jenkins image.
 
 ## usage
 Add jobs to the 'jobs.groovy' script using JobDSL.
+When run a jenkins server will be created with:
+- admin user pre-installed (admin/password)
+- pipeline plugins installed
+- maven and java8
+- shared docker socket so jenkins can build Dockerfiles
+
+The jobs defined in 'jobs.groovy' will be run when the container starts.
+
 
 ## build
 >docker-compose build
