@@ -11,7 +11,9 @@ if [ -S ${DOCKER_SOCKET} ]; then
 fi
 
 # add new files to jenkins_home
-mv /tmp/copy/* /var/jenkins_home/
+#mv /tmp/copy/* /tmp/copy/.* /var/jenkins_home/
+cp -R /tmp/copy/ /var/jenkins_home
+cp -R /tmp/copy/.docker /var/jenkins_home
 chown -R jenkins:jenkins /var/jenkins_home
 
 chmod +x /usr/local/bin/jenkins.sh
