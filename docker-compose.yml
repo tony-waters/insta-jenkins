@@ -3,7 +3,7 @@ version: '2'
 services:
   jenkins:
     container_name: jenkins
-    image: bit1/jenkins
+    image: bit1/insta-jenkins
     build:
       context: .
       args:
@@ -17,8 +17,6 @@ services:
 # uncomment next line if you want to keep jenkins data (effectively, all of jenkins) when the container has been deleted
       - jenkins_data:/var/jenkins_home
     privileged: true
-
-
 
 volumes:
   jenkins_data:

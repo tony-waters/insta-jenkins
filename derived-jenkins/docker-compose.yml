@@ -1,0 +1,14 @@
+version: '2'
+
+services:
+
+  derived-jenkins:
+    container_name: derived-jenkins
+    image: bit1/derived-jenkins
+    build:
+      context: .
+      args:
+        - http_proxy
+        - https_proxy
+    ports:
+      - 8080:8080
