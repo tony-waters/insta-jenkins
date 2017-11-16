@@ -25,22 +25,6 @@ RUN apt-get update && apt-get install -y docker-ce
 RUN apt-get update -y && apt-get install -y maven
 
 ########################################################################################################################
-# copy additional jenkins_home files to temporary directory (because of VOLUME in parent)
-########################################################################################################################
-#USER jenkins
-RUN mkdir -p /tmp/copy/.m2
-RUN mkdir /tmp/copy/.docker
-COPY settings.xml /tmp/copy/.m2/
-COPY config.json /tmp/copy/.docker/
-COPY jobs.groovy /tmp/copy/
-#RUN mkdir /var/jenkins_home/.m2
-#COPY settings.xml /var/jenkins_home/.m2/
-#USER root
-#RUN chown -R jenkins:jenkins /var/jenkins_home/.m2
-#RUN chown -R jenkins:jenkins /tmp/copy
-#USER jenkins
-
-########################################################################################################################
 # add plugins
 ########################################################################################################################
 RUN chmod +x /usr/local/bin/install-plugins.sh
@@ -59,9 +43,20 @@ COPY security.groovy \
 #    scripts/jobDslScript.text \
 
 ########################################################################################################################
-# add jenkins jobs
+# copy additional jenkins_home files to temporary directory (because of VOLUME in parent)
 ########################################################################################################################
-#COPY jobs.groovy /var/jenkins_home/jobs.groovy
+#USER jenkins
+RUN mkdir -p /tmp/copy/.m2
+RUN mkdir /tmp/copy/.docker
+COPY settings.xml /tmp/copy/.m2/
+COPY config.* /tmp/copy/.docker/
+COPY jobs.groovy /tmp/copy/
+#RUN mkdir /var/jenkins_home/.m2
+#COPY settings.xml /var/jenkins_home/.m2/
+#USER root
+#RUN chown -R jenkins:jenkins /var/jenkins_home/.m2
+#RUN chown -R jenkins:jenkins /tmp/copy
+#USER jenkins
 
 ########################################################################################################################
 # add entrypoint script
