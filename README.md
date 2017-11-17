@@ -14,6 +14,8 @@ When run a jenkins server will be created with:
 
 The jobs defined in 'jobs.groovy' will be run when the container starts.
 
+## clean up first
+>docker system prune
 
 ## build
 >docker-compose build
@@ -41,5 +43,6 @@ COPY jobs.groovy /tmp/copy/
 ```
 
 This will replace the default jobs file with your own.
+A working example of this is in the 'derived-jenkins' directory.
 
 
