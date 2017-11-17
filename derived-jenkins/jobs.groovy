@@ -11,13 +11,12 @@ pipelineJob('job1') {
         node {
           stage('Run job1') {
                 sh '''
-                    cd /ansible
-                    ansible-playbook job1.yml
+                    cd /
+                    echo hello
                 '''
           }
         }
       """.stripIndent())
         }
     }
-}
 }
