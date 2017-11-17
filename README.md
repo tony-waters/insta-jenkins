@@ -32,12 +32,6 @@ If you want to push to a registry from within your jobs Jenkinsfiles you must in
 This file is stored in ~/.docker on your local system when you have logged into your registry.
 Simply copy it from there into the root folder of this project and re-build.
 
-If there is a 'config.json' file present when the image is built, it will be included in the appropriate place within the image.
-If there is no such file then it is not included in the image. 
-Dockerfiles have no conditional-copy facility.
-Since the Dockerfile command 'COPY' expects at least one file to be present, a 'config.dummy' file is used along with a wildcard in the 'COPY' command.
-This provides a workaround to the problem.
-
 ## entending this image
 A simple way of extending this image to run different jobs would be to use a Dockerfile like this:
 

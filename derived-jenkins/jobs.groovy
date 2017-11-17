@@ -11,8 +11,8 @@ pipelineJob('job1') {
         node {
           stage('Run job1') {
                 sh '''
-                    cd /
                     echo hello
+                    docker ps -a
                 '''
           }
         }
