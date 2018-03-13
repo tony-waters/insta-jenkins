@@ -1,4 +1,5 @@
-#!/bin/bash -x
+#!/usr/bin/env bash
+
 
 # group setup for running docker as jenkins from docker container (need to share the same docker GID)
 groupdel docker

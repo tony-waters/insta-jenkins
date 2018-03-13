@@ -63,8 +63,9 @@ USER root
 RUN chmod +x /entrypoint.sh
 
 #VOLUME /var/jenkins_home
+RUN ls -la
 
-ENTRYPOINT ["/bin/tini", "--", "/entrypoint.sh"]
+ENTRYPOINT ["/sbin/tini", "--", "/entrypoint.sh"]
 
 
 
